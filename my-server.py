@@ -18,6 +18,7 @@ def echo():
 # AI generated - provided with lab instructions
 # Trial division algorithm to find prime factors of a number
 #
+@app.route("/trial_division/<int:n>") #autocompleted
 def trial_division(n):
    factors = []
    # Handle 2 separately
