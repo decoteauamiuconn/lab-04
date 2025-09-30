@@ -18,9 +18,10 @@ def echo():
 # AI generated - provided with lab instructions
 # Trial division algorithm to find prime factors of a number
 #
-@app.route("/trial_division/<int:n>") #autocompleted
+@app.route("/trial_division/<int:n>")
 def trial_division(n):
    factors = []
+   original_n = n
    # Handle 2 separately
    while n % 2 == 0:
       factors.append(2)
@@ -36,9 +37,11 @@ def trial_division(n):
 
    if n > 1:
       factors.append(n)
-   return factors
 
-print(trial_division(360)) # [2, 2, 2, 3, 3, 5]
+   # If the number is prime, factors will be [n]
+   return {"factors": factors}
+
+# Remove the print(trial_division(360)) line, as Flask endpoints should not be called directly like this.
 
 if __name__ == "__main__":
    app.run(host='0.0.0.0')
