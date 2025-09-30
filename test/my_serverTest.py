@@ -1,7 +1,7 @@
 import unittest
 from flask import Flask, request
 import json
-from my_server.py import app
+from my_server import app
 
 class MyServerTestCase(unittest.TestCase):
     def setUp(self):
