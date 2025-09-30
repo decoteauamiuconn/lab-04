@@ -18,7 +18,6 @@ def echo():
 # Trial division algorithm to find prime factors of a number
 #
 
-// ...existing code...
 
 @app.route('/trial_division/<int:n>')
 def trial_division(n):
@@ -30,7 +29,7 @@ def trial_division(n):
          n //= d
       d += 1
    return json.dumps({"factors": factors})
-// ...existing code...
+
 
 
 # Remove the print(trial_division(360)) line, as Flask endpoints should not be called directly like this.
