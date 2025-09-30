@@ -1,45 +1,37 @@
 from flask import Flask, request
+import json
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route('/')
 def hello():
-   return " you called \n"
+    return ' you called \n'
 
 # curl -d "text=Hello!&param2=value2" -X POST http://localhost:5000/echo
-@app.route("/echo", methods=['POST']) #route = url, method = POST
-#assuming POST was imported with Flask
-def echo():
-   return "You said: " + request.form['text']
 
-#@app.route("/")
+@app.route("/echo", methods=['POST'])
+def echo():
+    return "You said: " + request.form.get('text', '') 
 
 ##
 # AI generated - provided with lab instructions
 # Trial division algorithm to find prime factors of a number
 #
-@app.route("/trial_division/<int:n>")
+
+// ...existing code...
+
+@app.route('/trial_division/<int:n>')
 def trial_division(n):
    factors = []
-   original_n = n
-   # Handle 2 separately
-   while n % 2 == 0:
-      factors.append(2)
-      n //= 2
+   d = 2
+   while n > 1:
+      while n % d == 0:
+         factors.append(d)
+         n //= d
+      d += 1
+   return json.dumps({"factors": factors})
+// ...existing code...
 
-   # Check odd numbers up to sqrt(n)
-   p = 3
-   while p * p <= n:
-      while n % p == 0:
-         factors.append(p)
-         n //= p
-      p += 2
-
-   if n > 1:
-      factors.append(n)
-
-   # If the number is prime, factors will be [n]
-   return {"factors": factors}
 
 # Remove the print(trial_division(360)) line, as Flask endpoints should not be called directly like this.
 

@@ -1,6 +1,6 @@
 import unittest
 from flask import Flask, request
-from my_server import app  # Import the Flask app from your server code     <- autofilled
+app= Flask(__name__)
 import json
 
 class MyServerTestCase(unittest.TestCase):
@@ -26,7 +26,7 @@ class MyServerTestCase(unittest.TestCase):
 
         
 
-#almost the whole fucking thing autocompleted ? thank you copilot
+#almost the whole thing autocompleted ? thank you copilot
 
 if __name__ == '__main__':
     unittest.main()
