@@ -32,7 +32,6 @@ def trial_division(n):
 
 
 
-# Remove the print(trial_division(360)) line, as Flask endpoints should not be called directly like this.
 
 if __name__ == "__main__":
    app.run(host='0.0.0.0')
